@@ -3,11 +3,12 @@
   <%= notice %>
 </p>
 <% end %>
+<center>
 
 <h1><%= "#{@destination.city}, #{@destination.country}" %></h1>
-
-<p> <%= @destination.description %></p>
-
+<p> Population:<%= @destination.population %></p>
+<p> Description:<%= @destination.description %></p>
+</center>
 <div class="btn-group">
   <%= link_to 'Edit', edit_destination_path(@destination), class: "btn btn-default" %>
   <%= link_to 'Back', destinations_path, class: "btn btn-default" %>

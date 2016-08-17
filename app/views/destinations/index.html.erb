@@ -17,9 +17,16 @@
   <% @destinations.each do |destination| %>
 <div class="col-med-4">
   <div class="well">
+    <center>
     <p><%= destination.city %></p>
     <p><%= destination.country %></p>
+    <% if destination.avatar_file_name = !nil %>
+    <p><%= image_tag destination.avatar.url(:medium) %> </p>
+    <% end %>
+
+    <p><%= destination.population %></p>
     <p><%= destination.description %></p>
+</center>
     <p>
       <td><%= link_to 'Show', destination, class: 'btn btn-default' %></td>
       <td><%= link_to 'Edit', edit_destination_path(destination), class: 'btn btn-default' %></td>

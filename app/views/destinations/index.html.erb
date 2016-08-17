@@ -1,4 +1,17 @@
-<p id="notice"><%= notice %></p>
+<% if notice != nil %>
+<p id="notice" class="alert alert-success" role="alert">
+  <%= notice %>
+</p>
+<% end %>
+
+<div class="nav nav-pills" role="tablist">
+  <% @my_countries.each do |c| %>
+    <li><%= link_to c.country, destinations_path(country: c.country) %></li>
+  <% end %>
+
+</div>
+
+
 <h1>Listing Destinations</h1>
 <div class="row">
   <% @destinations.each do |destination| %>
@@ -8,9 +21,9 @@
     <p><%= destination.country %></p>
     <p><%= destination.description %></p>
     <p>
-      <td><%= link_to 'Show', destination, class: 'btn btn-primary' %></td>
-      <td><%= link_to 'Edit', edit_destination_path(destination), class: 'btn btn-warning' %></td>
-      <td><%= link_to 'Destroy', destination, method: :delete, data: { confirm: 'Are you sure?', class: 'btn btn-danger' } %></td>
+      <td><%= link_to 'Show', destination, class: 'btn btn-default' %></td>
+      <td><%= link_to 'Edit', edit_destination_path(destination), class: 'btn btn-default' %></td>
+      <td><%= link_to 'Destroy', destination, class: 'btn btn-default', method: :delete, data: { confirm: 'Are you sure?', class: 'btn btn-default' } %></td>
     </p>
   </div>
 </div>
